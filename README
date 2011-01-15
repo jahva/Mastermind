@@ -7,8 +7,8 @@ Begin game with !begin
    -a answer
    -c character
  
-example: !begin -t 10 -a 0001 -c 01
-example: !begin -t 20 -a abrg -c abcdefghijklmopqrstuvwxyz0123456789
+Example: !begin -t 10 -a 0001 -c 01
+Example: !begin -t 20 -a abrg -c abcdefghijklmopqrstuvwxyz0123456789
 
 It is possible that one begins the game with a private message 
 and others try to answer in the channel. 
@@ -18,7 +18,7 @@ Guess with !mm 1223
 End game with !end
 
 * - correct character in wrong place
-* - correct character in correct place
+O - correct character in correct place
 
 Example game:
 

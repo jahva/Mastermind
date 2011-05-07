@@ -2,6 +2,7 @@
 # by Jari Jaanto (jaffa)
 #
 # jari.jaanto AT gmail.com
+# http://jaan.to/
 #
 # Usage: 
 # 
@@ -10,15 +11,37 @@
 #   -a answer
 #   -c character
 # 
+# example: !begin 
 # example: !begin -t 10 -a 0001 -c 01
 # example: !begin -t 20 -a abrg -c abcdefghijklmopqrstuvwxyz0123456789
 #
 # It is possible that one begins the game with a private message 
-# and others try to answer in the channel. 
+# and others try to answer in the channel. No parameters required to
+# start the game
 # 
 # Guess with !mm 1223
 # 
 # End game with !end
+#
+# * - correct character in wrong place
+# O - correct character in correct place
+#
+# Example game:
+# 
+# <jaffa> !begin
+# <derp> GAME ON! charset: 123456, answer: *hidden*, turns: 12, codemaster: jaffa
+# <jaffa> !mm 1122
+# <derp> 1122  (1/12)
+# <jaffa> !mm 3344
+# <derp> 3344 O** (2/12)
+# <jaffa> !mm 5555
+# <derp> 5555  (3/12)
+# <jaffa> !mm 3436
+# <derp> 3436 OOO (4/12)
+# <jaffa> !mm 4436
+# <derp> 4436 OO (5/12)
+# <jaffa> !mm 3433
+# <derp> 3433 OOOO (6/12) WIN! \o/ (Time: 41s)
 
 use strict;
 use Irssi qw (command_bind settings_get_str settings_set_str settings_add_str);

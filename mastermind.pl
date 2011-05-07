@@ -4,6 +4,8 @@
 # jari.jaanto AT gmail.com
 # http://jaan.to/
 #
+# get the latest version from: https://github.com/jaffastc/Mastermind
+#
 # Usage: 
 # 
 # Begin game with !begin

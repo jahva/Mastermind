@@ -4,6 +4,8 @@
 # jari.jaanto AT gmail.com
 # http://jaan.to/
 #
+# License: GNU GPL v3
+#
 # get the latest version from: https://github.com/jaffastc/Mastermind
 #
 # Usage: 
@@ -78,7 +80,7 @@ $VERSION = "1.0";
     author => 'Jari Jaanto (jaffa)',
     contact => 'jari.jaanto AT gmail.com',
     name => 'mastermind',
-    description => 'Mastermind for irssi 1.0',
+    description => 'Mastermind 1.0 for irssi',
     license => 'GNU GPL v3',
     url => 'http://jaan.to/'
 );
@@ -153,7 +155,7 @@ sub event_privmsg {
         $quess = $args[1];
 
         if (length($quess) != length($answer)) {
-            $server->command ( "msg $target Wrong number of characters in answer '".$answer."'! Please try again.");
+            $server->command ( "msg $target Wrong number of characters in answer. Please try again.");
             return;
         } 
 

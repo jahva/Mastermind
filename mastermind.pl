@@ -132,10 +132,10 @@ sub event_privmsg {
             return;
         }
 
-        if ($nick ne $master && $state eq 'on' && $master ne '') {
-            $server->command ( "msg $target Only codemaster '".$master."' can end the game!");
-            return;
-        }
+#        if ($nick ne $master && $state eq 'on' && $master ne '') {
+#            $server->command ( "msg $target Only codemaster '".$master."' can end the game!");
+#            return;
+#        }
 
         reset_globals();
         $state = 'off';        
@@ -187,7 +187,7 @@ sub event_privmsg {
         my $wintime = (time()) - $start;
 
         if ($out eq 'OOOO') {
-            $server->command ( "msg $target $quess $out ($turn/$turns) WIN! \\o/ (Time: ".$wintime."s)");
+            $server->command ( "msg $target $quess $out ($turn/$turns) WAR FOR TERRITORY! \\o/ (Time: ".$wintime."s)");
             $state = 'off';
         } elsif ($turn == $turns) {
             $server->command ( "msg $target $quess $out ($turn/$turns) fail :(. Answer: ".$answer .". (Time: ".$wintime."s)");
@@ -208,13 +208,13 @@ sub event_privmsg {
         
         reset_globals();
 
-        my @args = split(/\s+/, $text);
+        my @args = split('-', $text);
         my $obj;
 
         foreach $obj(@args) {
-            if ($obj =~ m/^-t/) { $turns = substr(lc($obj), 2); }
-            if ($obj =~ m/^-a/) { $answer = substr(lc($obj), 2); }
-            if ($obj =~ m/^-c/) { $letters = substr(lc($obj), 2); }
+            if ($obj =~ m/^t /) { $turns = (split(' ', $obj))[1]; }
+            if ($obj =~ m/^a /) { $answer = (split(' ', $obj))[1]; }
+            if ($obj =~ m/^c /) { $letters = (split(' ', $obj))[1]; }
         }
 
         if (!$turns) { $turns = $def_turns; }
